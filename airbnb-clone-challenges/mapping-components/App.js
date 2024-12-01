@@ -9,9 +9,7 @@ the jokes show up on the page again
 */
 
 export default function App() {
-    const jokeElements = jokesData.map(joke => {
-        return <Joke  />
-    })
+    console.log(jokesData);
     return (
         <div>
             
