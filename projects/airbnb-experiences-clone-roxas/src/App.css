@@ -1,0 +1,72 @@
+section {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.gray {
+  color: #918E9B;
+}
+
+.navbar {
+  /* border: 2px solid red;  */
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1)  ;
+  position: relative;
+}
+
+.navbar__airbnblogo {
+  width: 82.02px;
+  height: 25.35px;
+  position: absolute;
+  top: 22px;
+  left: 30px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__image {
+  width: 55%;
+  min-width: 500px;
+  height: auto;
+  margin: 75px auto;
+}
+
+.hero__h1 {
+  padding-left: 10%;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.hero__text {
+  padding-left: 10%;
+}
+
+.card {
+  /* border: 2px solid red;  */
+  width: 176px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.card__photo {
+  width: 100%;
+  border-radius: 9px;
+}
+
+.card__stats {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card__star {
+  height: 13px;
+}
