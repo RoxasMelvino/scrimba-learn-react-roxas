@@ -10,9 +10,15 @@ the jokes show up on the page again
 
 export default function App() {
     console.log(jokesData);
+    const jokes = jokesData.map(joke => {
+        return <Joke
+            punchline = {joke.punchline}
+            setup = {joke.setup}
+        />
+    })
     return (
         <div>
-            
+            {jokes}
         </div>
     )
 }

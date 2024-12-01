@@ -417,7 +417,17 @@ the jokes show up on the page again
 
 function App() {
     console.log(_jokesData2.default);
-    return _react2.default.createElement("div", null);
+    var jokes = _jokesData2.default.map(function (joke) {
+        return _react2.default.createElement(_Joke2.default, {
+            punchline: joke.punchline,
+            setup: joke.setup
+        });
+    });
+    return _react2.default.createElement(
+        "div",
+        null,
+        jokes
+    );
 }
 // <Joke 
 //     punchline="It’s hard to explain puns to kleptomaniacs because they always take things literally."
