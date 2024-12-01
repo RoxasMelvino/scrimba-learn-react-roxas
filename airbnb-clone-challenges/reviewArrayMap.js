@@ -35,8 +35,9 @@ E.g. given: ["Bulbasaur", "Charmander", "Squirtle"]
 return: ["<p>Bulbasaur</p>", "<p>Charmander</p>", "<p>Squirtle</p>"]
 */
 
-const pokemon = ["Bulbasaur", "Charmander", "Squirtle"]
+const pokemons = ["Bulbasaur", "Charmander", "Squirtle"]
 // -->          ["<p>Bulbasaur</p>", "<p>Charmander</p>", "<p>Squirtle</p>"]
 // Your code here
 
-
+const tagged = pokemons.map(pokemon => `<p>${pokemon}</p>`)
+console.log(tagged);
