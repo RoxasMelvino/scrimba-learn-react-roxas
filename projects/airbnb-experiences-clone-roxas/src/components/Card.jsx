@@ -1,6 +1,8 @@
+// the import below works because the "root" is the public folder
 import starIcon from "/assets/star.png"
 
 export default function Card(props) {
+    
     return (
         <div className="card">
             <img src={`/assets/${props.img}`} alt="photo of a person" className="card__photo"/>
