@@ -10,7 +10,7 @@ function App() {
     return (
       <Card 
           key={item.id}
-          item={item}
+          {...item}
       />
     )
   })
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* <Hero /> */}
+      <Hero />
       <section className="experiencesContainer">
         {cards}
       </section>
