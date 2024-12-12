@@ -9,22 +9,22 @@ function App() {
   const cards = data.map(e => {
     return (
       <Card 
+          key={e.id}
           img={e.coverImg}
           rating={e.stats.rating}
           reviewCount={e.stats.reviewCount}
           country="Online"
           title={e.title}
           price={e.price}
+          openSpots={e.openSpots}
       />
     )
   })
 
-  console.log(cards);
-
   return (
     <div>
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
       <section className="experiencesContainer">
         {cards}
       </section>
