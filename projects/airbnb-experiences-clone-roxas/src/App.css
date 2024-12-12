@@ -64,7 +64,20 @@ section.experiencesContainer {
   min-width: 150px;
   font-size: 0.75rem;
   line-height: 1rem;
+  position: relative;
 }
+
+.card__badge {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: #222222;
+  font-weight: bold;
+  background-color: #fff;;
+  padding: .4rem;
+  border-radius: 5px;
+}
+
 
 .card__photo {
   width: 100%;

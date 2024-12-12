@@ -13,7 +13,7 @@ function App() {
           img={e.coverImg}
           rating={e.stats.rating}
           reviewCount={e.stats.reviewCount}
-          country="Online"
+          location="Online"
           title={e.title}
           price={e.price}
           openSpots={e.openSpots}
