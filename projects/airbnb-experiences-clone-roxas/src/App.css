@@ -49,6 +49,14 @@ h2 {
   padding-left: 10%;
 }
 
+section.experiencesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.55rem;
+  padding: 2rem;
+  /* border: 2px solid red;  */
+}
+
 .card {
   /* border: 2px solid red;  */
   width: 176px;

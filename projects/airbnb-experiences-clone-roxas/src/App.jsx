@@ -24,7 +24,10 @@ function App() {
   return (
     <div>
       <Navbar />
-      {cards}
+      <Hero />
+      <section className="experiencesContainer">
+        {cards}
+      </section>
     </div>
   )
 }
