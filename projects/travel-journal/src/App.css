@@ -1,11 +1,15 @@
 .page {
-  border: 2px solid red; 
+  /* border: 2px solid red;  */
   width: 50%;
   height: 75%;
+  padding: 1rem;
   max-width: 750px;
   min-width: 550px;
   min-height: 850px;
   margin: 0 auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1)  ;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .navbar {
@@ -24,28 +28,25 @@
   height: 24px;
 }
 
-.journal__section {
-  /* border: 2px solid blue; */
-}
-
 .journal__article {
-  border: 2px solid red; 
-  margin: 10px auto;
+  /* border: 2px solid red;  */
+  margin: 25px auto;
   width: 90%;
   display: flex; 
-  flex-wrap: wrap;
   gap: 1rem;
+  color: #2B283A;
 }
 
 .article__img {
-  height: 168px;
-
+  width: 170px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.header__div--flex {
+.header__location-info {
   display: flex;
   align-items: center;
-
 }
 
 .header__div-pin {
@@ -59,4 +60,10 @@
 
 .header__location {
   letter-spacing: 3px;
+}
+
+.header__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2em;
 }
