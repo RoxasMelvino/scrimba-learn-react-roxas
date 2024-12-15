@@ -1,6 +1,7 @@
 .meme-generator__container {
   width: 75%;
-  min-width: 550px;
+  background-color: #fff;
+  min-width: 400px;
   min-height: 550px;
   max-width: 850px;
   max-height: 850px;
@@ -8,7 +9,6 @@
 
 .navbar {
   background: linear-gradient(to right,  #672280 0%, #a626d3 35%);
-  border: 2px solid red; 
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -19,4 +19,43 @@
 .navbar__troll-face {
   height: 50px;
   margin-left: 1rem;
+}
+
+.form {
+  /* border: 2px solid red;  */
+  padding: 1.75rem 2.5rem;
+  display: flex; 
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form__text-label {
+  /* border: 2px solid red;  */
+  width: 45%;
+  font-weight: 500;
+}
+
+.form__input-text {
+  width: 100%;
+  padding: .55rem;
+  border-radius: 4.91px;
+  outline: none;
+  border: 2px solid #D1D5DB;
+}
+
+.form__submit-btn {
+  background: linear-gradient(to right,  #672280 0%, #a626d3 35%);
+  margin-top: 1rem;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.12em;
+  transition: 150ms ease;
+}
+
+.form__submit-btn:hover {
+  cursor: pointer;
+  transform: scale(1.025);
 }
