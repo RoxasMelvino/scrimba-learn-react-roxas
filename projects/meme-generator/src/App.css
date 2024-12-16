@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background: linear-gradient(to right,  #672280 0%, #a626d3 35%);
+  background: linear-gradient(90deg,  #672280 0%, #a626d3 35%);
   padding: 1rem;
   display: flex;
   align-items: center;
