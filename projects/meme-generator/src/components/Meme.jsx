@@ -4,8 +4,9 @@ export default function Meme() {
     const memes = memesData.data.memes
 
     function getRandomImage() {
-        const randIdx = Math.floor(Math.random() * memes.length) + 1
+        const randIdx = Math.floor(Math.random() * memes.length)
         const url = memes[randIdx].url
+        console.log(url, randIdx);
     }
 
     
