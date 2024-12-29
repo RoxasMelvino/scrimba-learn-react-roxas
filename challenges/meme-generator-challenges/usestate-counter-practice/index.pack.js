@@ -443,9 +443,7 @@ function App() {
         ),
         _react2.default.createElement(
             "button",
-            { className: "counter--plus", onClick: setCount(function (prevCount) {
-                    return prevCount + 1;
-                }) },
+            { className: "counter--plus", onClick: increment },
             "+"
         )
     );
