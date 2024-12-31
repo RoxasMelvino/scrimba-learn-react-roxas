@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from 'react';
 
 export default function App() {
     /**
@@ -8,13 +9,21 @@ export default function App() {
      *   boolean value (true -> false, false -> true)
      * - Display "Yes" if `isGoingOut` is `true`, "No" otherwise
      */
+
+    const [isGoingOut, setIsGoingOut] = useState(true);
+
+    function toggleIsGoingOut() {
+        // setIsGoingOut(prevStat => prevStat ? false : true) 
+        setIsGoingOut(prevStat => !prevStat)
+    }
+    
     
     return (
         <div className="state">
             <h1 className="state--title">Do I feel like going out tonight?</h1>
-            <div className="state--value">
-                <h1>Yes</h1>
-            </div>
+            <button className="state--value" onClick={toggleIsGoingOut}>
+                <h2>{isGoingOut ? "Yes" : "No"}</h2>
+            </button>
         </div>
     )
 }
