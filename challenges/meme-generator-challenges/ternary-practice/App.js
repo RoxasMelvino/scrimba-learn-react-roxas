@@ -20,7 +20,7 @@ export default function App() {
     //     answer = "No"
     // }
 
-    // let answer = isGoingOut ? "Yes" : "No";
+    // let answer = isGoingOut ? "Yes" : "No"; // conditional assignment
     // console.log(answer);
     
     return (
