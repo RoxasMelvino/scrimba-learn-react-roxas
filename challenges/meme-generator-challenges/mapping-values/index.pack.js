@@ -451,29 +451,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function App() {
-
-    /**
-     * Challenge: Convert the code below to use an array
-     * held in state instead of a local variable. Initialize 
-     * the state array with the same 2 items below
-     * 
-     * Don't worry about fixing `addItem` quite yet.
-     */
-
     var _useState = (0, _react.useState)(["Thing 1", "Thing 2"]),
         _useState2 = _slicedToArray(_useState, 2),
         thingsArray = _useState2[0],
         setThingsArray = _useState2[1];
 
     function addNewThing() {
-        // this will NOT work 
-        // this will change the whole state to just the number 3
-        // this is STILL CHANGING THE STATE DIRECTLY
-        // setThingsArray(prevThings => prevThings.push()) 
-
-        // since we are mapping the things inside of this array,
-        // it needs to be an array, NOT A NUMBER, which we can do like so...
-        // here, we are utilizing the spread operator thanks to ES6
         setThingsArray(function (prevThings) {
             return [].concat(_toConsumableArray(prevThings), ['Thing ' + (prevThings.length + 1)]);
         });
