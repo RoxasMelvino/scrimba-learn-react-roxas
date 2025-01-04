@@ -523,6 +523,8 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Box(props) {
+
+    // each box wil have its own state. 
     var _React$useState = _react2.default.useState(props.on),
         _React$useState2 = _slicedToArray(_React$useState, 2),
         isOn = _React$useState2[0],
