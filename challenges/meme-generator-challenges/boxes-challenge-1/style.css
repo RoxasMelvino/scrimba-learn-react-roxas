@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+div.box {
+    border: 1px solid #000; 
+    border-radius: 1rem;
+    height: 50px;
+    width: 80%;
+    margin: 8px;
+    padding: .6rem;
+    background-color: transparent;
+}
