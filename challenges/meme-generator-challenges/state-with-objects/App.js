@@ -13,18 +13,12 @@ export default function App() {
     let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
     
     function toggleFavorite() {
-        setContact(prevState => {
-            return {
-
-                // ...prevState, (this somehow does not work and results in a syntax error)
-
-                firstName: "John",
-                lastName: "Doe",
-                phone: "+1 (719) 555-1212",
-                email: "itsmyrealname@example.com",
+        setContact(prevState => (
+            {
+                ...prevState, 
                 isFavorite: !prevState.isFavorite
             }
-        })
+        ))
     }
     
     return (

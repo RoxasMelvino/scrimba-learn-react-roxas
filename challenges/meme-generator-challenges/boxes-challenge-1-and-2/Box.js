@@ -10,7 +10,7 @@ export default function Box(props) {
     // it is only making local changes to that state, not the value of where the original state is. 
 
     // With that being said, instead of giving each box a state, 
-    // we are going to use the state that already exists within our `App` Component (see boxes challenge part 2). 
+    // we are going to use the state that already exists within our `App` Component (see boxes challenge part 3). 
     const [isOn, setIsOn] = React.useState(props.on) 
 
     const styles = {
