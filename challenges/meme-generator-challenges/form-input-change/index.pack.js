@@ -412,7 +412,11 @@ function Form() {
     var _useState = (0, _react.useState)({
         firstName: "",
         lastName: "",
-        email: ""
+        email: "",
+        comments: "",
+        isFriendly: true,
+        employment: "",
+        favColor: ""
     }),
         _useState2 = _slicedToArray(_useState, 2),
         formData = _useState2[0],
@@ -421,8 +425,15 @@ function Form() {
     console.log(formData);
 
     function handleChange(event) {
+
         setFormData(function (prevData) {
-            return _extends({}, prevData, _defineProperty({}, event.target.name, event.target.value));
+            var _event$target = event.target,
+                name = _event$target.name,
+                value = _event$target.value,
+                type = _event$target.type,
+                checked = _event$target.checked;
+
+            return _extends({}, prevData, _defineProperty({}, name, type === "checkbox" ? checked : value));
         });
     }
 
@@ -440,8 +451,16 @@ function Form() {
             type: "text",
             placeholder: "Last Name",
             onChange: handleChange,
-            name: "lastName",
-            value: formData.lastName
+            name: "lastName"
+
+            // set the value of your inputs to be equal to your state!
+            // this is something called controlled inputs
+            // this is very vague, but just know you need to do this!
+            // if you want to try and conceptualize it, think back to the boxes challenge 
+            // where we set each box its own state. We eventually moved that state up to the parent,
+            // which holds each box, and then passed the data from the parent to each box via props
+            // we did this so there was one state updated instead of multiple ones!
+            , value: formData.lastName
         }),
         _react2.default.createElement("input", {
             type: "text",
@@ -449,7 +468,139 @@ function Form() {
             onChange: handleChange,
             name: "email",
             value: formData.email
-        })
+        }),
+        _react2.default.createElement("textarea", {
+            placeholder: "Comments",
+            value: formData.comments,
+            onChange: handleChange,
+            name: "comments"
+        }),
+        _react2.default.createElement("input", {
+            type: "checkbox",
+            id: "isFriendly",
+            name: "isFriendly",
+            checked: formData.isFriendly,
+            onChange: handleChange
+        }),
+        _react2.default.createElement(
+            "label",
+            { htmlFor: "isFriendly" },
+            "Are you friendly?"
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+            "fieldset",
+            null,
+            _react2.default.createElement(
+                "legend",
+                null,
+                "Current employment status"
+            ),
+            _react2.default.createElement("input", {
+                type: "radio",
+                id: "unemployed",
+                name: "employment",
+                value: "unemployed",
+                onChange: handleChange
+
+                // similar to a checkbox, we can make React control our radio inputs  
+                // rather than them having its own HTML state. 
+                // it's `formData.employment === 'unemployed'` so we can make it a boolean 
+                , checked: formData.employment === 'unemployed'
+            }),
+            _react2.default.createElement(
+                "label",
+                { htmlFor: "unemployed" },
+                "Unemployed"
+            ),
+            _react2.default.createElement("br", null),
+            _react2.default.createElement("input", {
+                type: "radio",
+                id: "part-time",
+                name: "employment",
+                value: "part-time",
+                onChange: handleChange,
+                checked: formData.employment === 'part-time'
+            }),
+            _react2.default.createElement(
+                "label",
+                { htmlFor: "part-time" },
+                "Part-time"
+            ),
+            _react2.default.createElement("br", null),
+            _react2.default.createElement("input", {
+                type: "radio",
+                id: "full-time",
+                name: "employment",
+                value: "full-time",
+                onChange: handleChange,
+                checked: formData.employment === 'full-time'
+            }),
+            _react2.default.createElement(
+                "label",
+                { htmlFor: "full-time" },
+                "Full-time"
+            ),
+            _react2.default.createElement("br", null)
+        ),
+        _react2.default.createElement(
+            "label",
+            { htmlFor: "favColor" },
+            "What is your favorite color?"
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+            "select",
+            {
+                id: "favColor"
+
+                // just like our inputs, we need to mirror what we have in state here
+                , value: formData.favColor,
+                onChange: handleChange,
+                name: "favColor"
+            },
+            _react2.default.createElement(
+                "option",
+                { value: "" },
+                "-- Choose a color --"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "red" },
+                "Red"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "orange" },
+                "Orange"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "yellow" },
+                "Yellow"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "green" },
+                "Green"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "blue" },
+                "Blue"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "indigo" },
+                "Indigo"
+            ),
+            _react2.default.createElement(
+                "option",
+                { value: "violet" },
+                "Violet"
+            )
+        )
     );
 }
 

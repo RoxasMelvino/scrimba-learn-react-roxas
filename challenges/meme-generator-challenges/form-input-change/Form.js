@@ -4,13 +4,20 @@ export default function Form() {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
-        email: ""
+        email: "",
+        comments: "",
+        isFriendly: true,
+        employment: "",
+        favColor: ""
     })
 
     console.log(formData);
     
     function handleChange(event) {
+        
         setFormData(prevData => {
+
+            const {name, value, type, checked} = event.target
             return {
                 ...prevData,
                 
@@ -21,7 +28,7 @@ export default function Form() {
                 // in this case, event.target.name: event.target.value will result in an error,
                 // so we need square brackets around the property name ! 
                 // Also, make sure the name of the input is the same as the initial state value!
-                [event.target.name]: event.target.value
+                [name]: type === "checkbox" ? checked : value
             }
         })
     } 
@@ -35,6 +42,7 @@ export default function Form() {
                 name="firstName" // have the name property the same name as the property!
                 value={formData.firstName}
             />
+
             <input 
                 type="text" 
                 placeholder="Last Name"
@@ -50,6 +58,7 @@ export default function Form() {
                 // we did this so there was one state updated instead of multiple ones!
                 value={formData.lastName}
             />
+
             <input 
                 type="text" 
                 placeholder="Email"
@@ -57,6 +66,91 @@ export default function Form() {
                 name="email"
                 value={formData.email}
             />
+
+            <textarea 
+                placeholder="Comments"
+                value={formData.comments}
+                onChange={handleChange}
+                name="comments"
+            />
+
+            <input 
+                type="checkbox" 
+                id="isFriendly"
+                name="isFriendly"
+                checked={formData.isFriendly}
+                onChange={handleChange}
+            />
+            <label htmlFor="isFriendly">Are you friendly?</label>
+            <br />
+            <br />
+
+            <fieldset>
+
+                {/* notice how each element have the same name
+                this is so we cannot check all the radio buttons at once.
+                This is default HTML behavior, not React.  */}
+                <legend>Current employment status</legend>
+
+                <input 
+                    type="radio" 
+                    id="unemployed"
+                    name="employment"
+                    value="unemployed"
+                    onChange={handleChange}
+
+                    // similar to a checkbox, we can make React control our radio inputs  
+                    // rather than them having its own HTML state. 
+                    // it's `formData.employment === 'unemployed'` so we can make it a boolean 
+                    checked={formData.employment === 'unemployed'}
+                />
+                <label htmlFor="unemployed">Unemployed</label>
+                <br />
+
+                <input 
+                    type="radio" 
+                    id="part-time"
+                    name="employment"
+                    value="part-time"
+                    onChange={handleChange}
+                    checked={formData.employment === 'part-time'}
+                />
+                <label htmlFor="part-time">Part-time</label>
+                <br />
+
+                <input 
+                    type="radio" 
+                    id="full-time"
+                    name="employment"
+                    value="full-time"
+                    onChange={handleChange}
+                    checked={formData.employment === 'full-time'}
+                />
+                <label htmlFor="full-time">Full-time</label>
+                <br />
+                
+            </fieldset>
+
+            <label htmlFor="favColor">What is your favorite color?</label>
+            <br />
+            <select 
+                id="favColor"
+
+                // just like our inputs, we need to mirror what we have in state here
+                value={formData.favColor} 
+                onChange={handleChange}
+                name="favColor"
+            >
+                {/* we need to reprsent the empty string value here  */}
+                <option value="">-- Choose a color --</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="indigo">Indigo</option>
+                <option value="violet">Violet</option>
+            </select>
         </form>
     )
 }
