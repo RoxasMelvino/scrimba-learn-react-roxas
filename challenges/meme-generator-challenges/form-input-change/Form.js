@@ -11,8 +11,6 @@ export default function Form() {
         favColor: ""
     })
 
-    console.log(formData);
-    
     function handleChange(event) {
         
         setFormData(prevData => {
@@ -33,8 +31,13 @@ export default function Form() {
         })
     } 
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formData);
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 placeholder="First Name"
@@ -151,6 +154,10 @@ export default function Form() {
                 <option value="indigo">Indigo</option>
                 <option value="violet">Violet</option>
             </select>
+
+            <br />
+            <br />
+            <button>Submit</button>
         </form>
     )
 }

@@ -422,8 +422,6 @@ function Form() {
         formData = _useState2[0],
         setFormData = _useState2[1];
 
-    console.log(formData);
-
     function handleChange(event) {
 
         setFormData(function (prevData) {
@@ -437,9 +435,14 @@ function Form() {
         });
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formData);
+    }
+
     return _react2.default.createElement(
         "form",
-        null,
+        { onSubmit: handleSubmit },
         _react2.default.createElement("input", {
             type: "text",
             placeholder: "First Name",
@@ -600,6 +603,13 @@ function Form() {
                 { value: "violet" },
                 "Violet"
             )
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+            "button",
+            null,
+            "Submit"
         )
     );
 }
