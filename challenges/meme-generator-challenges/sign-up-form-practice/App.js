@@ -1,7 +1,7 @@
 import React from "react"
+import { useState } from "react";
 
 export default function App() {
-    
     /**
      * Challenge: Connect the form to local state
      * 
@@ -17,9 +17,34 @@ export default function App() {
      *    the "newsletter" checkbox, log "Thanks for signing
      *    up for our newsletter!" to the console.
      */
+
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+        isOkayToJoin: false
+    })
+
+    console.log(formData);
+    
+    function handleChange(event) {
+        setFormData(prevData => {
+
+            const {name, type, value, checked} = event.target
+            if (checked) console.log('Thanks for signing up for our newsletter!');
+
+            return {
+                ...prevData,
+                [name]: type === "checkbox" ? checked : value
+            }
+        })
+    }
     
     function handleSubmit(event) {
         event.preventDefault()
+
+        const isPasswordValid = formData.password === formData.confirmPassword;
+        console.log(isPasswordValid ? "Successfuly logged in" : "Passwords do not match");
     }
     
     return (
@@ -29,23 +54,34 @@ export default function App() {
                     type="email" 
                     placeholder="Email address"
                     className="form--input"
+                    value={formData.email}
+                    name="email"
+                    onChange={handleChange}
                 />
                 <input 
                     type="password" 
                     placeholder="Password"
                     className="form--input"
+                    value={formData.password}
+                    name="password"
+                    onChange={handleChange}
                 />
                 <input 
                     type="password" 
                     placeholder="Confirm password"
                     className="form--input"
+                    value={formData.confirmPassword}
+                    name="confirmPassword"
+                    onChange={handleChange}
                 />
                 
                 <div className="form--marketing">
                     <input
                         id="okayToEmail"
                         type="checkbox"
-                        
+                        checked={formData.isOkayToJoin}
+                        name="isOkayToJoin"
+                        onChange={handleChange}
                     />
                     <label htmlFor="okayToEmail">I want to join the newsletter</label>
                 </div>

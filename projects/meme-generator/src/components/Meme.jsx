@@ -2,6 +2,14 @@ import memesData from "../memesData.js"
 import { useState } from 'react';
 
 export default function Meme() {
+
+     /**
+     * Challenge: 
+     * 1. Set up the text inputs to save to
+     *    the `topText` and `bottomText` state variables.
+     * 2. Replace the hard-coded text on the image with
+     *    the text being saved to state.
+     */
     
     const [meme, setMeme] = useState({
         topText: '',
@@ -15,6 +23,7 @@ export default function Meme() {
         const memes = allMemeImages.data.memes;
         const randIdx = Math.floor(Math.random() * memes.length)
         const imageUrl = memes[randIdx].url
+        
         setMeme(prevMeme => {
             return {
                 ...prevMeme, 
@@ -23,22 +32,52 @@ export default function Meme() {
         })
     }
 
+    function handleChange(e) {
+        const {name, value} = e.target
+
+        setMeme(prevMeme => {
+            return {
+                ...prevMeme, 
+                [name]: value
+            }
+        })
+    }
     
     return (
         <main>
             <div className="form">
                 <label className="form__text-label" >
                     <p>Top Text</p>
-                    <input type="text" className="form__input-text"required/>
+                    <input 
+                        type="text" 
+                        className="form__input-text"
+                        name="topText"
+                        onChange={handleChange}
+                        value={meme.topText}
+                    />
                 </label>
                 <label className="form__text-label">
                     <p>Bottom Text</p>
-                    <input type="text" className="form__input-text"required/>
+                    <input 
+                        type="text" 
+                        className="form__input-text"
+                        name="bottomText"
+                        onChange={handleChange}
+                        value={meme.bottomText}
+                    />
                 </label>
-                <button className="form__submit-btn" onClick={getRandomMemeImage}>Get a new meme image 🖼️</button>
+                <button 
+                    className="form__submit-btn" 
+                    onClick={getRandomMemeImage}
+                >
+                    Get a new meme image 🖼️
+                </button>
+
             </div>
             <div className="image">
                 <img src={meme.randomImage} alt="meme image" className="image__meme" />
+                <h2 className="meme-text top">{meme.topText}</h2>
+                <h2 className="meme-text bottom">{meme.bottomText}</h2>
             </div>
         </main>
     )
