@@ -1,19 +1,18 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 export default function App() {
-    const [starWarsData, setStarWarsData] = React.useState({})
+    const [starWarsData, setStarWarsData] = useState({});
+    const [count, setCount] = useState(0);
     
-    // console.log("Component rendered")
-    
-    // fetch("https://swapi.dev/api/people/1")
-    //     .then(res => res.json())
-    //     .then(data => setStarWarsData(data))
-        
-    // side effects
+    useEffect(() => {
+        console.log('Effect has been run');
+    }, [count])
     
     return (
         <div>
             <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
+            <h2>The count is {count}</h2>
+            <button onClick={() => {setCount(prevCount => prevCount + 1)}}>Add</button>
         </div>
     )
 }

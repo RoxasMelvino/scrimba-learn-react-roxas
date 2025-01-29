@@ -405,18 +405,19 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-    var _React$useState = _react2.default.useState({}),
-        _React$useState2 = _slicedToArray(_React$useState, 2),
-        starWarsData = _React$useState2[0],
-        setStarWarsData = _React$useState2[1];
+    var _useState = (0, _react.useState)({}),
+        _useState2 = _slicedToArray(_useState, 2),
+        starWarsData = _useState2[0],
+        setStarWarsData = _useState2[1];
 
-    // console.log("Component rendered")
+    var _useState3 = (0, _react.useState)(0),
+        _useState4 = _slicedToArray(_useState3, 2),
+        count = _useState4[0],
+        setCount = _useState4[1];
 
-    // fetch("https://swapi.dev/api/people/1")
-    //     .then(res => res.json())
-    //     .then(data => setStarWarsData(data))
-
-    // side effects
+    (0, _react.useEffect)(function () {
+        console.log('Effect has been run');
+    }, [count]);
 
     return _react2.default.createElement(
         "div",
@@ -425,6 +426,21 @@ function App() {
             "pre",
             null,
             JSON.stringify(starWarsData, null, 2)
+        ),
+        _react2.default.createElement(
+            "h2",
+            null,
+            "The count is ",
+            count
+        ),
+        _react2.default.createElement(
+            "button",
+            { onClick: function onClick() {
+                    setCount(function (prevCount) {
+                        return prevCount + 1;
+                    });
+                } },
+            "Add"
         )
     );
 }
